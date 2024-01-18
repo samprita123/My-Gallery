@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*if we add border & padding inside the code, it make content size smaller but the size remain same, that's wwhy we use this*/
+}
+#wrapper {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.container {
+    height: 100%;
+    max-width: 1200px;/*only contain 1200px content, more than 1200px contain become overflow*/
+    margin:0 auto;/*it helps to create margin in left-right side , so that our content comes to center*/
+    padding: 20px;/*space between border and content is knowmn as padding*/
+}
+.container h1 {
+    margin: 20px 0;/* margin:(top margin)(right margin)(bottom margin)(left margin)*/
+    /* here we 2 times it means- margin:(top & bottom)(right & left)*/
+    text-align: center;
+    margin-bottom:20px ;
+    font-size: 3 rem;
+}
+.gallery {
+    display: flex;/*in default - it becomes horizontal*/
+    flex-wrap: wrap;/*if we didn't use wrap  , then all the images comes in single line*/
+    justify-content: space-between;
+}
+.card{
+    width: 32%;/*why we define the 32% ? = because total view is 100% ,we add 3 picture in a row
+                so 32+32+32=96 ,so 96% is coverd . now the remaining 4% for space between them.*/
+    position: relative;/*use for overlap the text over img*/
+    margin-bottom: 20px;
+    border-radius: 10px;/*use for rounded the corner of images*/
+    overflow: hidden;/*hide both x and y direction*/
+}
+.card img{
+    width: 100%;/* card is parent element of the img tag , so the image width 100% here
+                                       is equal to the caard width given above*/
+    height: 100%;/*it makee image corner rounded , because here height 100% make the image same
+                  size as card size , so we already mention the card corner above then it image
+                    corner according to card corner*/ 
+    filter: grayscale(100%);/*use for colouring*/
+    box-shadow: 0 0 20px #333;
+    object-fit: cover;/*img strech in the given area for better fit*/
+}
+.card:hover{
+    transform: scale(1.03);/*at the time of hovor ,it zoom in 1.03 size*/
+    filter: drop-shadow(0 0 10px #333);/*at the time of hovor , it drop a shadow at the
+                                        back side of the picture ........
+                                        we can do the same thing using "box- shadow" but 
+                                        here we need to mention blurry effecct ,radius, spread..etc*/
+    transition: 0.3s;/*total time for hovor*/
+}
+.card:hover img{
+    filter: grayscale(0%);/*here we remove the filter from the pictures at the time of hovor on the picture*/
+}
+.card figcaption{
+    position: absolute;/*overlap the caption over the image*/
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;/*take 100% of acrd width , becuz card is parent of figcaption*/
+    height: 20%;/*take 20% of acrd height*/
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0;/*opacity is 0 means- transparency is 100% , it means it didn't visible*/
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%,rgba(255,255,255,0) 100%);
+    transition: 0.3s;
+}
+.card:hover figcaption{
+    opacity: 1;/*it means the text is visible when we  hovor on the card*/
+    transform: scale(1.03);/*text scale remain same as the card scale*/
+}
