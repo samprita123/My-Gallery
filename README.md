@@ -7,6 +7,9 @@ Welcome to my gallery web page! This project showcases a collection of images us
 - Simple and clean design
 - Responsive layout for various screen sizes
 - Easy navigation through the gallery
+- 
+## Project View
+![Screenshot 2024-06-23 102341](https://github.com/samprita123/My-Gallery/assets/115872926/a38c9cb6-c2c1-46a8-b111-ac78d365accc)
 
 ## Technologies Used
 
